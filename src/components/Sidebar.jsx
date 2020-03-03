@@ -1,27 +1,36 @@
-import React from "react";
-import { ListGroup } from "react-bootstrap";
-import { categories } from "../data";
-import { articles } from "../data";
+import React from 'react';
+import { ListGroup } from 'react-bootstrap';
+import { articles, categories } from '../data';
+import { Link } from 'react-router-dom';
 
-const SidebarSection = props => (
+const SidebarSection = (props) =>
   <section>
-    <h2> {props.title}</h2>
+    <h2>{props.title}</h2>
     <ListGroup>
-      {props.items.map((item, index) =>
-        <ListGroup.Item key={`article-link${index}`}>{item}</ListGroup.Item>
+      {props.items.map( (item, index) =>
+        <ListGroup.Item key={`link${index}`}>
+          <Link to={`/${props.type}/${index}`}>
+            {item}
+          </Link>
+        </ListGroup.Item>
       )}
     </ListGroup>
   </section>
-);
+;
 
-const Sidebar = () => (
+const Sidebar = () =>
   <aside>
-    <SidebarSection title="Articles" items={articles.map((item) => item.title)} />
-
     <SidebarSection
-      title="Categories"
-      items={categories.map((item) => item.name)}
+      title="Articles"
+      type="article"
+      items={articles.map( (item) => item.title )}
+    />
+    <SidebarSection
+      title="Catégories"
+      type="category"
+      items={categories.map( (item) => item.name )}
     />
   </aside>
-);
+;
+
 export default Sidebar;
