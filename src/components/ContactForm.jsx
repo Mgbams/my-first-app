@@ -4,7 +4,7 @@ import { Form, Button } from 'react-bootstrap';
 class ContactForm extends Component {
   state = {
     email: '',
-    message: '',
+    message: ''
   };
 
   handleEmailChange = (e) => {
