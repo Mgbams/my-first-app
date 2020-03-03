@@ -1,6 +1,6 @@
 import React from 'react';
 import { ArticlePreview } from '.';
-import data from '../data';
+import data from '../data/articles';
 
 const ArticleList = () =>
   <section className="card-list">
