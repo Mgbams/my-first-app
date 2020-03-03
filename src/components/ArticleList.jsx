@@ -1,10 +1,10 @@
 import React from 'react';
 import { ArticlePreview } from '.';
-import data from '../data/articles';
+import {articles} from '../data';
 
-const ArticleList = () =>
+const ArticleList = (props) =>
   <section className="card-list">
-    {data.map( (item, index) =>
+    {props.articles.map( (item, index) =>
       <ArticlePreview
         key={`article-preview${index}`}
         title={item.title}
